@@ -1,0 +1,22 @@
+.featured-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+
+  @include breakpoint(small) {
+    background-attachment: scroll;
+  }
+
+  @include breakpoint(medium) {
+    background-attachment: scroll;
+  }
+
+  @include breakpoint(large) {
+    background-attachment: fixed;
+  }
+
+  @include breakpoint(xlarge) {
+    background-attachment: fixed;
+  }
+}

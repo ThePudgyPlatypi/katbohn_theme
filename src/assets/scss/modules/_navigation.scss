@@ -1,0 +1,137 @@
+// Navigation breakpoints
+.mobile-menu,
+.site-title-bar {
+  @include hide-for(medium);
+}
+
+.desktop-menu,
+.site-navigation .top-bar-left {
+  @include show-for(medium);
+}
+
+// Site title
+.site-desktop-title a {
+  font-weight: bold;
+}
+
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+.off-canvas {
+  background: $dark-gray;
+
+  > ul.menu {
+    height: 100vh;
+    padding: 1rem;
+
+    a {
+      color: $white;
+      font-weight: 600;
+      font-size: rem-calc(15);
+    }
+  }
+
+  .menu .active > a { background-color: #ccc; }
+
+}
+
+.title-bar {
+  background: $dark-gray;
+
+  .title-bar-title {
+    a {
+      font-size: 1rem;
+      color: #B9B9B9;
+    }
+  }
+
+
+}
+
+
+.mobile-menu,
+.mobile-off-canvas-menu {
+
+  .menu .is-active > a {
+    background-color: $accent-purple;
+    text-shadow: 2px 2px 8px $black;
+  }
+}
+
+// Tablet and desktop menu
+.top-bar {
+  //resetting the color
+  background-color: initial;
+  justify-content: left;
+
+  ul {
+    // resetting the color
+    background-color: initial;
+  }
+
+  .top-bar-title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+    padding-left: 1rem;
+    line-height: 1.8;
+  }
+
+  .menu a {
+    color: $accent-purple;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1;
+
+    &:hover:not(.button) {
+      text-decoration: underline;
+    }
+
+  }
+
+  .menu .active > a {  }
+
+  .menu>li:not(.menu-text)>a { padding: 0 1rem 0 0; }
+
+  .dropdown.menu .submenu { border: 0; }
+  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
+  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+
+  .dropdown.menu {
+    li {
+      a {
+        background: initial;
+      }
+    }
+
+    li.is-active {
+      a {
+        font-style: italic;
+        color: black;
+      }
+    }
+  }
+}
+
+.site-navigation {
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
+  }
+}
+
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
+
+.nav-previous {
+  float:left;
+}
+
+.nav-next {
+  float:right;
+}

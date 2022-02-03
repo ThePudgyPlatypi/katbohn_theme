@@ -1,0 +1,220 @@
+// Page header
+.site-header {
+  height: 100vh;
+
+  @include breakpoint(medium) {
+    margin: 0 0 rem-calc(72);
+  }
+
+  @include breakpoint(small) {
+    margin: 0 0 rem-calc(32);
+  }
+
+  .header-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .title-bar-header-flex-item {
+      flex: 0 0 auto;
+    }
+    .front-hero {
+      padding: 0 0 0 0;
+      flex: 1 0 auto;
+
+      .marketing {
+        @include xy-grid-container(55rem);
+        @include xy-grid;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        z-index: 10;
+      }
+
+      @include breakpoint(small) {
+        padding: 0;
+        position: relative;
+        // text-align: left;
+      }
+
+      @include breakpoint(medium) {
+        // margin: 0 0 rem-calc(72);
+      }
+
+      .tagline {
+        @include breakpoint(small) {
+          @include xy-cell(12);
+          padding-top: 3rem;
+        }
+
+        @include breakpoint(medium) {
+          @include xy-cell(12);
+          padding-top: 6rem;
+        }
+      }
+
+      h1 {
+        color: $black;
+        font-weight: 500;
+        display: inline-block;
+        background-color: $dark-gray;
+        
+        @include breakpoint(small) {
+          font-size: 3rem;
+          line-height: 3rem;
+        }
+
+        @include breakpoint(medium) {
+          font-size: 7rem;
+          line-height: 7rem;
+        }
+      }
+
+      h4 {
+        color: #fefefe;
+        font-weight: 300;
+        font-size: 1.3125rem;
+
+        @include breakpoint(small) {
+          font-size: 1rem;
+          line-height: 1rem;
+        }
+
+      }
+
+      .download {
+        margin-top: rem-calc(20);
+      }
+
+      .visualizer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+
+        .track-title {
+          position: absolute;
+          bottom: 0;
+          width: 50%;
+          text-align: center;
+          padding-bottom: 10px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+// Intro
+.intro {
+  @include xy-grid-container;
+  @include xy-grid;
+
+  .fp-intro {
+    @include breakpoint(small) {
+      @include xy-cell(12);
+    }
+
+    @include breakpoint(medium) {
+      @include xy-cell(10);
+      @include xy-cell-offset(1);
+    }
+
+    @include breakpoint(medium down) {
+      padding: 1.25rem;
+
+      h2 {
+        font-weight: 300;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+    }
+    
+  }
+}
+
+// Section divider
+.section-divider {
+  @include xy-grid-container;
+  @include xy-grid;
+
+  hr {
+    @include xy-cell(12);
+    @extend .dotted;
+    box-sizing: border-box;
+  }
+}
+
+// Benefits
+.benefits {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 70%;
+
+  @include breakpoint(medium down) {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  article {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 3rem;
+
+    @include breakpoint(medium down) {
+      padding: 1.25rem;
+    }
+    
+    .image-header {
+      position: relative;
+      margin-bottom: 2rem;
+
+      .full-width-mobile {
+        @include breakpoint(medium down) {
+          width: 100vw;
+          margin: 0 -1.25rem;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      header {
+        position: absolute;
+        bottom: 0;
+        margin-left: -10px;
+        @include breakpoint(medium down) {
+          margin-left: -1.25rem;
+          
+          h3 {
+            font-size: 1.5rem;
+          }
+        }
+        h3 {
+          background-color: black;
+          color: white;
+          display: inline;
+        }
+      }
+    }
+    
+
+    .entry-content {
+      p {
+        padding: 10px;
+      }
+    }
+  }
+}
+
