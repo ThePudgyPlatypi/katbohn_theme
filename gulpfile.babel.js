@@ -1,21 +1,26 @@
 'use strict';
 
-import plugins       from 'gulp-load-plugins';
+import gulpLoadPlugins from 'gulp-load-plugins';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
 import rimraf        from 'rimraf';
 import yaml          from 'js-yaml';
 import fs            from 'fs';
-import dateFormat    from 'dateformat';
+import { format  }   from 'date-fns';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
 import log           from 'fancy-log';
 import colors        from 'ansi-colors';
+import dartSass      from 'sass';
+import gulpSass      from 'gulp-sass'
+
+// set sass compiler
+const scss = gulpSass( dartSass );
 
 // Load all Gulp plugins into one variable
-const $ = plugins();
+const $ = gulpLoadPlugins();
 
 // Check for --production flag
 const PRODUCTION = !!(yargs.argv.production);
@@ -79,10 +84,10 @@ function copy() {
 function sass() {
   return gulp.src(['src/assets/scss/app.scss','src/assets/scss/editor.scss'])
     .pipe($.sourcemaps.init())
-    .pipe($.sass({
+    .pipe(scss({
       includePaths: PATHS.sass
     })
-      .on('error', $.sass.logError))
+      .on('error', scss.logError))
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
     }))
@@ -104,8 +109,13 @@ const webpack = {
       rules: [
         {
           test: /.js$/,
-          loader: 'babel-loader',
           exclude: /node_modules(?![\\\/]foundation-sites)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ["@babel/preset-env"]
+            }
+          }
         },
       ],
     },
@@ -162,7 +172,7 @@ gulp.task('webpack:watch', webpack.watch);
 function images() {
   return gulp.src('src/assets/images/**/*')
     .pipe($.if(PRODUCTION, $.imagemin([
-      $.imagemin.jpegtran({
+      $.imagemin.mozjpeg({
         progressive: true,
       }),
       $.imagemin.optipng({
@@ -183,7 +193,7 @@ function images() {
 
 // Create a .zip archive of the theme
 function archive() {
-  var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
+  var time = format(new Date(), "yyyy-mm-dd_HH-MM");
   var pkg = JSON.parse(fs.readFileSync('./package.json'));
   var title = pkg.name + '_' + time + '.zip';
 
