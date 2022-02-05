@@ -29,7 +29,7 @@ const PRODUCTION = !!(yargs.argv.production);
 const DEV = !!(yargs.argv.dev);
 
 // Load settings from settings.yml
-const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
+const { BROWSERSYNC, REVISIONING, PATHS } = loadConfig();
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
@@ -88,9 +88,7 @@ function sass() {
       includePaths: PATHS.sass
     })
       .on('error', scss.logError))
-    .pipe($.autoprefixer({
-      browsers: COMPATIBILITY
-    }))
+    .pipe($.autoprefixer())
 
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))

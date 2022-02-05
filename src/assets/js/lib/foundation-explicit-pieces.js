@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { Foundation } from 'foundation-sites/js/foundation.core';
-import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.util.core';
+import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.core.utils';
 import { Box } from 'foundation-sites/js/foundation.util.box'
 import { onImagesLoaded } from 'foundation-sites/js/foundation.util.imageLoader';
 import { Keyboard } from 'foundation-sites/js/foundation.util.keyboard';
@@ -58,46 +58,46 @@ Touch.init($);
 
 Triggers.init($, Foundation);
 
-Foundation.plugin(Abide, 'Abide');
+// Foundation.plugin(Abide, 'Abide');
 
-Foundation.plugin(Accordion, 'Accordion');
+// Foundation.plugin(Accordion, 'Accordion');
 
-Foundation.plugin(AccordionMenu, 'AccordionMenu');
+// Foundation.plugin(AccordionMenu, 'AccordionMenu');
 
-Foundation.plugin(Drilldown, 'Drilldown');
+// Foundation.plugin(Drilldown, 'Drilldown');
 
-Foundation.plugin(Dropdown, 'Dropdown');
+// Foundation.plugin(Dropdown, 'Dropdown');
 
-Foundation.plugin(DropdownMenu, 'DropdownMenu');
+// Foundation.plugin(DropdownMenu, 'DropdownMenu');
 
-Foundation.plugin(Equalizer, 'Equalizer');
+// Foundation.plugin(Equalizer, 'Equalizer');
 
-Foundation.plugin(Interchange, 'Interchange');
+// Foundation.plugin(Interchange, 'Interchange');
 
-Foundation.plugin(Magellan, 'Magellan');
+// Foundation.plugin(Magellan, 'Magellan');
 
 Foundation.plugin(OffCanvas, 'OffCanvas');
 
-Foundation.plugin(Orbit, 'Orbit');
+// Foundation.plugin(Orbit, 'Orbit');
 
-Foundation.plugin(ResponsiveMenu, 'ResponsiveMenu');
+// Foundation.plugin(ResponsiveMenu, 'ResponsiveMenu');
 
-Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
+// Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
-Foundation.plugin(Reveal, 'Reveal');
+// Foundation.plugin(Reveal, 'Reveal');
 
-Foundation.plugin(Slider, 'Slider');
+// Foundation.plugin(Slider, 'Slider');
 
-Foundation.plugin(SmoothScroll, 'SmoothScroll');
+// Foundation.plugin(SmoothScroll, 'SmoothScroll');
 
-Foundation.plugin(Sticky, 'Sticky');
+// Foundation.plugin(Sticky, 'Sticky');
 
-Foundation.plugin(Tabs, 'Tabs');
+// Foundation.plugin(Tabs, 'Tabs');
 
-Foundation.plugin(Toggler, 'Toggler');
+// Foundation.plugin(Toggler, 'Toggler');
 
-Foundation.plugin(Tooltip, 'Tooltip');
+// Foundation.plugin(Tooltip, 'Tooltip');
 
-Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
+// Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
-module.exports = Foundation;
+// module.exports = Foundation;

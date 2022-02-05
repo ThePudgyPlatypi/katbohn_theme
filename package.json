@@ -14,6 +14,11 @@
     "phpcs": "gulp phpcs",
     "phpcbf": "gulp phpcbf"
   },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 11"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ThePudgyPlatypi/katbohn_theme.git"
